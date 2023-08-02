@@ -44,3 +44,35 @@ Once you run the command to start the Jenkins service, you will have access to t
  3. Install the necessary plugins.
  4. Make the basic data configuration. 
  5. Then, click on start using Jenkins. Enjoy!
+
+## Install Git and Terraform on your Jenkins Server
+
+You can install GIT via SSH. For this just get the connection and then run the next command: 
+sudo dnf install git
+
+Now, for the Terraform instalation:
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+
+and
+
+sudo yum -y install terraform
+
+## Ansible installation
+Its possible that you find some troubles to install Ansible on your Amazon Linux 2023 EC2 VM, for this just take care of use the next commands:
+
+python3  -m  pip  -V
+
+If the console output is negative, you need to install the pip package handler like this:
+
+curl  https://bootstrap.pypa.io/get-pip.py  -o  get-pip.py
+python3  get-pip.py  --user
+
+Now yes, installing Ansible:
+python3  -m  pip  install  --user  ansible
+
+## Pass the parameters
+
+Make sure to enter the parameter settings inside your job in Jenkins. In this place you will be able to give values to the parameters that you will pass to your system before starting the execution.
+
+![enter image description here](https://i.stack.imgur.com/fdL9V.png)
+
